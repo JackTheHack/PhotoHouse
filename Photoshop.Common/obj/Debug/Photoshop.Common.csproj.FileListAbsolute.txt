@@ -1,5 +1,0 @@
-C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Common\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Common\bin\Debug\Photoshop.Common.dll
-C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Common\bin\Debug\Photoshop.Common.pdb
-C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Common\obj\Debug\Photoshop.Common.dll
-C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Common\obj\Debug\Photoshop.Common.pdb
