@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoShopWebsite", "PhotoShopWebsite\PhotoShopWebsite.csproj", "{0397972E-21F2-4A0D-BE0E-857F6EBD03C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoshop.DataAccess", "Photoshop.DataAccess\Photoshop.DataAccess.csproj", "{52331372-AEA0-4EE3-98D6-671233BB530B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoshop.Model", "Photoshop.Model\Photoshop.Model.csproj", "{84A65061-32A6-41AF-A86C-E69004B9DB77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoshop.Common", "Photoshop.Common\Photoshop.Common.csproj", "{A553CAB7-1606-40EA-948C-C9828D2255DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0397972E-21F2-4A0D-BE0E-857F6EBD03C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0397972E-21F2-4A0D-BE0E-857F6EBD03C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0397972E-21F2-4A0D-BE0E-857F6EBD03C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0397972E-21F2-4A0D-BE0E-857F6EBD03C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52331372-AEA0-4EE3-98D6-671233BB530B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52331372-AEA0-4EE3-98D6-671233BB530B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52331372-AEA0-4EE3-98D6-671233BB530B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52331372-AEA0-4EE3-98D6-671233BB530B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84A65061-32A6-41AF-A86C-E69004B9DB77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A65061-32A6-41AF-A86C-E69004B9DB77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A65061-32A6-41AF-A86C-E69004B9DB77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A65061-32A6-41AF-A86C-E69004B9DB77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A553CAB7-1606-40EA-948C-C9828D2255DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A553CAB7-1606-40EA-948C-C9828D2255DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A553CAB7-1606-40EA-948C-C9828D2255DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A553CAB7-1606-40EA-948C-C9828D2255DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Welcome to PhotoHouse</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ipsum diam, vehicula aliquet lorem. Donec molestie ante et diam venenatis suscipit vitae sed leo. Aliquam non eros est, quis imperdiet urna. Nullam feugiat congue pellentesque. Mauris mattis felis vel lorem sollicitudin id porta libero blandit. Integer et augue massa, ac luctus massa. Praesent mauris sem, consequat ut posuere a, ultrices a velit. Phasellus ac sollicitudin augue. Proin vel ultrices ante. Sed vulputate nibh vel erat pharetra sit amet feugiat turpis dignissim. Pellentesque rutrum, metus vitae ultrices imperdiet, nulla tortor volutpat justo, ac suscipit mauris lorem quis elit. In id pellentesque nulla. Donec diam augue, bibendum ut placerat in, tempus eu neque. Vivamus eu dignissim augue. Vivamus purus diam, mattis nec luctus a, sodales non sapien. Nunc congue, quam non aliquet tempus, dolor nisi facilisis mi, sagittis porta urna augue eget urna.</p>
+
+@using(Html.BeginForm()){
+    <div>
+        @Html.ActionLink("New Order", "SelectAlbum", "Order")
+    </div>
+    <div>
+        @Html.ActionLink("Order List", "List", "Order")
+    </div>
+}

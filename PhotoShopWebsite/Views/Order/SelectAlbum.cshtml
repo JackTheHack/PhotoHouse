@@ -1,0 +1,99 @@
+﻿
+@model Photoshop.Model.Order
+
+@{
+    ViewBag.Title = "Select Album";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section VKInit
+{
+    getPhotoAlbums();
+
+    $(function(){
+        getViewerId();
+    });
+}
+
+@section HeadContent
+{
+    <script type="text/javascript">
+        function getViewerId() {
+            viewerId = '@ViewBag.viewerId';
+            $("#ClientVkId").val(viewerId);
+        }
+
+        function getAlbumParams(thubms,count) {
+            var result = new Array();
+            for (var i = 0; i < count; i++) {
+                var item = thubms[i];
+                if (item != undefined) {
+                    var itemString = item.owner_id + "_" + item.thumb_id;
+                    result.push(itemString);
+                }
+            }
+            return result.join(",");
+        }
+
+        function onAlbumClick(sender) {
+            $(sender).toggleClass("selected");
+            var selected = $(sender).children("#isSelected").val();
+            $(sender).children("#isSelected").val(selected == "false" ? "true" : "false");
+        }
+
+        function addAlbum(albumId, albumThumb, albumName, i) {
+            var elem = document.createElement("div");
+            elem.setAttribute("id", albumId);
+            elem.setAttribute("onclick", "onAlbumClick(this)");
+            elem.setAttribute("class", "cell");
+            elem.setAttribute("title", albumName);
+
+            var img = document.createElement("img");
+            img.setAttribute("src", albumThumb);
+            img.setAttribute("alt", albumName);
+
+            elem.appendChild(createHidden("isSelected", "selected[" + i + "].Checked", "false"));
+            elem.appendChild(createHidden("id", "selected[" + i + "].Id", albumId));
+            elem.appendChild(createHidden("albumName", "selected[" + i + "].Name", albumName));
+
+            elem.appendChild(img);
+
+            $(".grid").append(elem);
+        }
+
+        function getPhotoAlbums() {
+            VK.api("photos.getAlbumsCount", null, function (count) {
+                if (count.response != null) {
+                    VK.api("photos.getAlbums", null, function (data) {
+                        if (data.response != null) {
+                            var albumInfo = new Array();
+
+                            for(var i=0;i<data.response.length;i++)
+                            {
+                                var item = data.response[i];
+                                albumInfo[item.aid] = item;
+                            }
+
+                            VK.api("photos.getById", { photos: getAlbumParams(data.response, count.response) },
+                            function (data2) {
+                                for (var i = 0; i < data2.response.length; i++) {
+                                    var item = data2.response[i];
+                                    addAlbum(item.aid, item.src_small, albumInfo[item.aid].title, i);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+}
+
+<h2>Select Album:</h2>
+@using (Html.BeginForm("SelectPhotos", "Order"))
+{   
+    @Html.ValidationSummary()
+    @Html.HiddenFor(m => m.ClientVkId);
+    <div class="grid"></div>
+    <input type="submit" value="Next" />
+}

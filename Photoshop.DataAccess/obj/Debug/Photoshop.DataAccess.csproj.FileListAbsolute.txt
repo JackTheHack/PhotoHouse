@@ -1,0 +1,12 @@
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Photoshop.DataAccess.dll
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Photoshop.DataAccess.pdb
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Norm.dll
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Photoshop.Common.dll
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Photoshop.Model.dll
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Norm.pdb
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Norm.xml
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Photoshop.Common.pdb
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\bin\Debug\Photoshop.Model.pdb
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\obj\Debug\Photoshop.DataAccess.dll
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.DataAccess\obj\Debug\Photoshop.DataAccess.pdb

@@ -1,0 +1,141 @@
+﻿@using PhotoShopWebsite.Models
+@model SelectPhotosModel
+@{
+    ViewBag.Title = "SelectPhotos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section VKInit
+{
+        var albumIds = new Array();
+        @foreach(var album in Model.Albums)
+        {
+            @:albumIds.push('@album.Id');
+        }
+        
+        var userId = '@Model.Order.ClientVkId';
+
+        getPhotos(albumIds, userId);
+}
+
+@section HeadContent
+{
+    <style type="text/css">
+        .preview
+        {
+            width: 100%;
+            height:100%;
+            background:white;
+            opacity:1;
+            display:none;
+            position:absolute;
+            z-index:2;
+            text-align:center;
+        }
+        
+        .preview #photo
+        {
+            width:400px;
+            opacity:1;
+        }
+    </style>
+    <script type="text/javascript">        
+        function getPhotos(albumIds, userId) {
+            var photoIndex = 0;
+            for (var i = 0; i < albumIds.length; i++) {
+                var albumId = albumIds[i];
+                VK.api("photos.get", { uid: userId, aid: albumId }, function (data) {
+                    if (data.response != null) {
+                        for (var j = 0; j < data.response.length; j++) {
+                            var item = data.response[j];
+                            AddPhoto(item, photoIndex++);
+                        }
+                    }
+                });
+            }
+
+            $(".preview").click(function () {
+                $(".preview").toggle()
+            });
+
+        }
+
+        function onPhotoClick(sender) {
+            $(sender).toggleClass("selected");
+            var selected = $(sender).children("#isSelected").val();
+            $(sender).children("#isSelected").val(selected == "false" ? "true" : "false");
+
+        }
+
+        function previewPhoto(sender,e) {
+            $(".preview").toggle();
+            var div = $(sender).parent();
+            var hiddenSrc = div.children("#imageBigSrc").val();
+            if(hiddenSrc === "undefined")
+            {
+                hiddenSrc = div.children("#imageSrc").val();
+            }
+            $("#photo").attr("src", hiddenSrc);
+
+            if (!e) var e = window.event;
+            e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation();
+        }
+
+        function AddPhoto(item, i)
+        {
+            var elem = document.createElement("div");
+            elem.setAttribute("id", item.pid);
+            elem.setAttribute("onclick", "onPhotoClick(this)");
+            elem.setAttribute("class", "cell");
+            elem.setAttribute("title", item.text);
+
+            if (item.src_xxbig != null) {
+                var hdText = document.createElement("span");
+                hdText.innerText = "HD";
+                hdText.setAttribute("style", "position:absolute; bottom:5px; right:5px;");
+                elem.appendChild(hdText);
+            }
+
+
+            var previewLink = document.createElement("a");
+            previewLink.innerHTML = "Zoom";
+            previewLink.setAttribute("onclick", "previewPhoto(this)");
+            previewLink.setAttribute("style", "position:absolute; left:5px; bottom:5px");
+            previewLink.setAttribute("src", "#");
+
+            elem.appendChild(previewLink);
+
+            var img = document.createElement("img");
+            img.setAttribute("src", item.src_small);
+            img.setAttribute("alt", item.text);
+
+            elem.appendChild(createHidden("isSelected", "selected[" + i + "].Checked", "false"));
+            elem.appendChild(createHidden("id", "selected[" + i + "].Id", item.aid));
+            elem.appendChild(createHidden("albumName", "selected[" + i + "].Name", item.text));
+            elem.appendChild(createHidden("imageSrc", "selected[" + i + "].Src", item.src_big));
+            elem.appendChild(createHidden("imageBigSrc", "selected[" + i + "].BigSrc", item.src_xxbig));
+
+            elem.appendChild(img);
+
+            $(".grid").append(elem);
+        }
+
+    </script>
+}
+
+<div class="preview">
+    <div>
+        <img id="photo" />
+    </div>
+    <div>
+        <input type="button" value="Close" />
+    </div>
+</div>
+
+<h2>Select Photos:</h2>
+@using (Html.BeginForm())
+{
+    <div class="grid"></div>
+    <input type="submit" value="Next" />
+}

@@ -1,0 +1,8 @@
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Model\bin\Debug\Photoshop.Model.dll
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Model\bin\Debug\Photoshop.Model.pdb
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Model\bin\Debug\Norm.dll
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Model\bin\Debug\Norm.pdb
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Model\bin\Debug\Norm.xml
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Model\obj\Debug\Photoshop.Model.dll
+C:\Users\jack\Documents\Visual Studio 2010\Projects\PhotoShopWebsite\Photoshop.Model\obj\Debug\Photoshop.Model.pdb

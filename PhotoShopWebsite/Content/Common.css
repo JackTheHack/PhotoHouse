@@ -1,0 +1,52 @@
+﻿        
+        /*Select album*/
+        .grid
+        {
+            background:white;          
+            text-align:left;
+            height:420px;
+            overflow-y:auto;
+        }
+        
+        .cell
+        {
+            display:inline-block;
+            width:130px;
+            height:70px;
+            padding:10px;
+            text-align:center;
+            margin:5px;
+            border:1px solid #AAAAFF;
+            position:relative;
+        }
+        
+        .cell span
+        {
+            color:#AAAAAA;
+        }
+        
+        .cell:hover
+        {
+            background:#DDDDFF;
+        }
+        
+        .cell.selected
+        {
+            background:#CCCCEE;            
+        }
+        
+        .cell a
+        {
+            display:block;
+            text-decoration:underline;
+            cursor:pointer;
+        }
+        
+        .cell img
+        {
+            vertical-align:top;
+            height:50px;
+        }
+        
+        /* Select photo */
+       
