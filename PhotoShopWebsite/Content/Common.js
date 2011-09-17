@@ -4,6 +4,6 @@
     hiddenField.setAttribute("name", name);
     hiddenField.setAttribute("type", "hidden");
     hiddenField.setAttribute("value", value);
-    return hiddenField;
+    return hiddenField; 
 }
 
