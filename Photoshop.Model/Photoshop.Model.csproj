@@ -50,6 +50,7 @@
     <Compile Include="Enums\PhotoSize.cs" />
     <Compile Include="Enums\PaperFormat.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfo.cs" />
   </ItemGroup>

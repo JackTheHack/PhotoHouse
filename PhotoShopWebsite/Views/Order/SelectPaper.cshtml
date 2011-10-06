@@ -1,0 +1,23 @@
+﻿@model PhotoShopWebsite.Models.OrderWizardModel
+
+@{
+    ViewBag.Title = "Select Paper";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select Paper</h2>
+@using(Html.BeginForm("UserData", "Order"))
+{
+    <div>
+    <label for="PaperType">Paper Type:</label>
+    @Html.DropDownList("Order.PaperType", (IEnumerable<SelectListItem>)ViewBag.PaperTypeList)
+    </div>
+    <div>
+    <label for="CopyCount">Copies:</label>
+    @Html.EditorFor(m => m.Order.CopyCount)
+    </div>
+    <div>
+        <input type="submit" value="Next" />
+        <input type="submit" value="Back" onclick="SetAction('@Url.Action("UserData")')" />
+    </div>
+}

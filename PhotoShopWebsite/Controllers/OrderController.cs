@@ -19,9 +19,30 @@ namespace PhotoShopWebsite.Controllers
             }
         }
 
-        public ActionResult SelectPaper(Order order)
+        public ActionResult UserData(OrderWizardModel model)
         {
-            return View();
+            model.Order.ClientVkId = VKUser.viewer_id;
+
+            return View(model);
+        }
+
+        private ViewResult GoToSelectPaper(OrderWizardModel model)
+        {
+            ViewBag.PaperTypeList =
+                from value in Enum.GetNames(typeof(PaperFormat))
+                select new SelectListItem()
+                {
+                    Selected = false,
+                    Text = value,
+                    Value = value
+                };
+
+            return View("SelectPaper", model);
+        }
+
+        public ActionResult SelectPaper(OrderWizardModel model)
+        {
+            return GoToSelectPaper(model);
         }
 
         public ActionResult SelectAlbum()
@@ -30,20 +51,20 @@ namespace PhotoShopWebsite.Controllers
         }
 
 
-        public ActionResult SelectPhotos(Order order, List<Album> selected)
+        public ActionResult SelectPhotos(OrderWizardModel model)
         {
-            return View(new SelectPhotosModel()
+            return View(new OrderWizardModel()
             {
-                Albums = selected.Where(m => m.Checked).ToList(),
-                Order = order
+                Albums = model.Albums.Where(m => m.Checked).ToList(),
+                Order = model.Order
             });
         }
 
-        public ActionResult Submit(Order order)
+        public ActionResult Submit(OrderWizardModel model)
         {
             using (var orders = new OrderDbManager())
             {
-                orders.Add(order);
+                orders.Add(model.Order);
                 return View("Complete");
             }
         }

@@ -1,0 +1,44 @@
+﻿@model PhotoShopWebsite.Models.OrderWizardModel
+
+@{
+    ViewBag.Title = "UserData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Information:</h2>
+@using(Html.BeginForm("Submit", "Order"))
+{
+    <div>
+        <span id="FIO"></span>
+    </div>
+    <div>
+        <label for="Address">Address:</label>
+        @Html.EditorFor(m => m.Order.Address)
+    </div>
+    <div>
+        <label for="Telephone">Telephone:</label>
+        @Html.EditorFor(m => m.Order.Telephone)
+    </div>
+    <div>
+        <input type="submit" value="Next" />
+        <input type="submit" value="Back" onclick="SetAction('@Url.Action("SelectPhotos")')" />
+    </div>
+}
+
+<script type="text/javascript">
+    VK.init(function () {
+        var userData = VK.api("getProfiles", { uids: '@Model.Order.ClientVkId', fields: 'contacts'}, function(result)
+        {
+            if(result.response!=null)
+            {
+                var userdata = result.response[0];
+                $("#FIO").html(userdata.first_name + ' ' + userdata.last_name);
+
+                if($("#Order_Telephone").val() != null)
+                {
+                    $("#Order_Telephone").val(userdata.mobile_phone);
+                }
+            }
+        });
+    });
+</script>

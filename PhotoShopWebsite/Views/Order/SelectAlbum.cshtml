@@ -1,5 +1,5 @@
 ﻿
-@model Photoshop.Model.Order
+@model PhotoShopWebsite.Models.OrderWizardModel
 
 @{
     ViewBag.Title = "Select Album";
@@ -52,9 +52,9 @@
             img.setAttribute("src", albumThumb);
             img.setAttribute("alt", albumName);
 
-            elem.appendChild(createHidden("isSelected", "selected[" + i + "].Checked", "false"));
-            elem.appendChild(createHidden("id", "selected[" + i + "].Id", albumId));
-            elem.appendChild(createHidden("albumName", "selected[" + i + "].Name", albumName));
+            elem.appendChild(createHidden("isSelected", "Albums[" + i + "].Checked", "false"));
+            elem.appendChild(createHidden("id", "Albums[" + i + "].Id", albumId));
+            elem.appendChild(createHidden("albumName", "Albums[" + i + "].Name", albumName));
 
             elem.appendChild(img);
 
@@ -93,7 +93,8 @@
 @using (Html.BeginForm("SelectPhotos", "Order"))
 {   
     @Html.ValidationSummary()
-    @Html.HiddenFor(m => m.ClientVkId);
+    @Html.HiddenFor(m => m.Order.ClientVkId);
     <div class="grid"></div>
     <input type="submit" value="Next" />
+    <input type="submit" value="Back" onclick="SetAction('@(Url.Action("Index","Home"))')" />
 }

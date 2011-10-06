@@ -5,4 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section VKInit
+{
+    fillUserData();
+}
+
+@section HeadContent
+{
+    <script type="text/javascript">
+        function fillUserData() {
+            VK.api();
+        }
+    </script>
+}
+
 <h2>Complete</h2>
+
+<div>
+@Html.EditorFor(m => m.Address)
+
+</div>

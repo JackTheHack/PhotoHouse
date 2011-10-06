@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Model";
+}
+
+@model PhotoShopWebsite.Models.OrderWizardModel
+
+@helper Albums()
+{
+    if(Model.Albums != null)
+    {
+        for(int i=0;i<Model.Albums.Count;i++)
+        {
+            var item = Model.Albums[i];
+            <input type="hidden" name="Albums[@i].Checked" value="@item.Checked" />
+            <input type="hidden" name="Albums[@i].Id" value="@item.Id" />
+            <input type="hidden" name="Albums[@i].Name" value="@item.Name" />
+        }
+    }
+}
+
+@helper Photos()
+{
+    if(Model.Photos != null)
+    {
+        for(int i=0; i<Model.Photos.Count; i++)
+        {
+            var item = Model.Photos[i];
+            <input type="hidden" name="Photos[@i].Checked" value="@item.Checked" />
+            <input type="hidden" name="Photos[@i].Id" value="@item.Id" />
+            <input type="hidden" name="Photos[@i].Name" value="@item.Name" />
+            <input type="hidden" name="Photos[@i].Src" value="@item.Src" />
+            <input type="hidden" name="Photos[@i].BigSrc" value="@item.BigSrc" />
+        }
+    }
+}
+
+@Albums()
+
+@Photos()

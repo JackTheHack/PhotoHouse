@@ -1,5 +1,5 @@
 ﻿@using PhotoShopWebsite.Models
-@model SelectPhotosModel
+@model OrderWizardModel
 @{
     ViewBag.Title = "SelectPhotos";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -110,11 +110,11 @@
             img.setAttribute("src", item.src_small);
             img.setAttribute("alt", item.text);
 
-            elem.appendChild(createHidden("isSelected", "selected[" + i + "].Checked", "false"));
-            elem.appendChild(createHidden("id", "selected[" + i + "].Id", item.aid));
-            elem.appendChild(createHidden("albumName", "selected[" + i + "].Name", item.text));
-            elem.appendChild(createHidden("imageSrc", "selected[" + i + "].Src", item.src_big));
-            elem.appendChild(createHidden("imageBigSrc", "selected[" + i + "].BigSrc", item.src_xxbig));
+            elem.appendChild(createHidden("isSelected", "Photos[" + i + "].Checked", "false"));
+            elem.appendChild(createHidden("id", "Photos[" + i + "].Id", item.aid));
+            elem.appendChild(createHidden("albumName", "Photos[" + i + "].Name", item.text));
+            elem.appendChild(createHidden("imageSrc", "Photos[" + i + "].Src", item.src_big));
+            elem.appendChild(createHidden("imageBigSrc", "Photos[" + i + "].BigSrc", item.src_xxbig));
 
             elem.appendChild(img);
 
@@ -133,9 +133,10 @@
     </div>
 </div>
 
-<h2>Select Photos:</h2>
-@using (Html.BeginForm())
+<h2>Select Photos :</h2>
+@using (Html.BeginForm("SelectPaper", "Order"))
 {
     <div class="grid"></div>
     <input type="submit" value="Next" />
+    <input type="submit" value="Back" onclick="SetAction('@Url.Action("SelectAlbum")')" />
 }

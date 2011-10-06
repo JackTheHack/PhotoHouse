@@ -68,12 +68,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\SelectPhotosModel.cs" />
+    <Compile Include="Models\OrderWizardModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Common.css" />
     <Content Include="Content\Common.js" />
+    <Content Include="Content\MvcNavigation.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
@@ -109,7 +110,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\Wizard\" />
+    <Content Include="Views\Order\SelectPaper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -138,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Order\SelectPhotos.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Model.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\UserData.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
